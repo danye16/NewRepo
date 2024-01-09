@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRITICOGRAFO.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Actividad CRITICOGRAFO" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label>Nombre:</Label>
+        <Entry Placeholder="Apodo">  </Entry>
+
+        <Grid>
+            <Label FontSize="30" Grid.ColumnSpan="2"  Grid.Row="0">Genero:</Label>
+            <RadioButton Grid.Column="0" Grid.Row="1" Content="Hombre"> </RadioButton>
+            <RadioButton Grid.Column="1" Grid.Row="1" Content="Mujer"></RadioButton>
+
+            <Label  Grid.Column="0" Grid.Row="4">Alto</Label>
+            <CheckBox Margin="40,-20,0,0" Grid.Column="0" Grid.Row="4" IsChecked="true"/>
+            <Label Grid.Column="1" Grid.Row="4">Feo</Label>
+            <CheckBox Margin="40,-20,0,0" Grid.Column="1" Grid.Row="4"></CheckBox>
+            <Label  Grid.Column="0" Grid.Row="5">Listo</Label>
+            <CheckBox Margin="40,-20,0,0" Grid.Column="0" Grid.Row="5" IsChecked="true"/>
+            <Label Margin="-40,0,0,0" Grid.Column="1" Grid.Row="5">Extravagante</Label>
+            <CheckBox Margin="40,-20,0,0" Grid.Column="1" Grid.Row="5"></CheckBox>
+            <Label  Grid.Column="0" Grid.Row="6">Raro</Label>
+            <CheckBox Margin="40,-20,0,0" Grid.Column="0" Grid.Row="6" IsChecked="true"/>
+            <Label Grid.Column="1" Grid.Row="6">Grande</Label>
+            <CheckBox Margin="40,-20,0,0" Grid.Column="1" Grid.Row="6"></CheckBox>
+        </Grid>
+        <Button Text="CRITICAR"></Button>
+        <Entry></Entry>
+    </StackLayout>
+
+</ContentPage>
