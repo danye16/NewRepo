@@ -18,12 +18,13 @@ namespace CRITICOGRAFO
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e) //Alto
         {
         }
-       string genero;
+        string genero;
         string Palabra;
-        
-        private void Button_Clicked(object sender, EventArgs e)
+        string a;
+        //string  []final;
+        public void Estados()
         {
-            string nombre = Apodo.Text;
+            string nombre = Apodo.Text + " es";
             if (Hombre.IsChecked)
             {
                 genero = "MACHO";
@@ -33,69 +34,83 @@ namespace CRITICOGRAFO
                 genero = "Mujer";
             }
 
-            
-            if (genero=="MACHO")
+
+            if (genero == "MACHO")
             {
                 if (Alto.IsChecked)
                 {
-                    Palabra = "Alto";
+                    Palabra += "Alto";
                 }
                 if (Feo.IsChecked)
                 {
-                    Palabra += "Feo";
+                    Palabra += " Feo";
                 }
                 if (Listo.IsChecked)
                 {
-                    Palabra += "Listo";
+                    Palabra += " Listo";
                 }
                 if (Extravagante.IsChecked)
                 {
-                    Palabra += "Extravagante";
+                    Palabra += " Extravagante";
                 }
                 if (Raro.IsChecked)
                 {
-                    Palabra += "Raro";
+                    Palabra += " Raro";
                 }
                 if (Grande.IsChecked)
                 {
-                    Palabra += "Grande";
+                    Palabra += " Grande";
                 }
             }
             if (genero == "Mujer")
             {
                 if (Alto.IsChecked)
                 {
-                    Palabra = "Alta";
+                    Palabra += " Alta";
                 }
                 if (Feo.IsChecked)
                 {
-                    Palabra += "Fea";
+                    Palabra += " Fea";
                 }
                 if (Listo.IsChecked)
                 {
-                    Palabra += "Lista";
+                    Palabra += " Lista";
                 }
                 if (Extravagante.IsChecked)
                 {
-                    Palabra += "Extravaganta";
+                    Palabra += " Extravaganta";
                 }
                 if (Raro.IsChecked)
                 {
-                    Palabra += "Rara";
+                    Palabra += " Rara";
                 }
                 if (Grande.IsChecked)
                 {
-                    Palabra += "Granda";
+                    Palabra += " Granda";
                 }
             }
+            // control a u quita los comentarios
+            string[] resultadofinal = Palabra.Split(' ');
 
-            string resultado = nombre + Palabra;
+            for (int i = 0; i < resultadofinal.Length; i++) 
+            {
+               a+= resultadofinal[i]+",";
 
-            string[] resultadofinal = resultado.Split(new char[] {})
+            }
 
-            Resultado.Text=resultado.ToString();
+            for (int i = 0; i < resultadofinal.Length; i++)
+            {
+                 a= a.Substring(0, a.Length-i)+"y";
+            }
+
         }
-
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Estados();
+            Resultado.Text =a;
+            //}
+        }
+       
         private void CheckBox_CheckedChanged_1(object sender, CheckedChangedEventArgs e)//Feo
         {
 
