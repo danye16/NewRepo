@@ -21,15 +21,21 @@ namespace CRITICOGRAFO
         string genero;
         string Palabra;
         string a;
+        string nombre;
+
         //string  []final;
         public void Estados()
         {
-            string nombre = Apodo.Text + " es";
+            nombre = string.Empty;
+            a = string.Empty;
+            Palabra = string.Empty;
+            nombre = Apodo.Text;
+
             if (Hombre.IsChecked)
             {
                 genero = "MACHO";
             }
-            if (Mujer.IsChecked)
+            else if (Mujer.IsChecked)
             {
                 genero = "Mujer";
             }
@@ -39,7 +45,7 @@ namespace CRITICOGRAFO
             {
                 if (Alto.IsChecked)
                 {
-                    Palabra += "Alto";
+                    Palabra = "Alto";
                 }
                 if (Feo.IsChecked)
                 {
@@ -62,11 +68,11 @@ namespace CRITICOGRAFO
                     Palabra += " Grande";
                 }
             }
-            if (genero == "Mujer")
+            else if (genero == "Mujer")
             {
                 if (Alto.IsChecked)
                 {
-                    Palabra += " Alta";
+                    Palabra = "Alta";
                 }
                 if (Feo.IsChecked)
                 {
@@ -92,22 +98,46 @@ namespace CRITICOGRAFO
             // control a u quita los comentarios
             string[] resultadofinal = Palabra.Split(' ');
 
-            for (int i = 0; i < resultadofinal.Length; i++) 
+            //for (int i = 0; i < resultadofinal.Length; i++) 
+            //{
+            //   a+= resultadofinal[i]+",";
+
+            //}
+
+            //for (int i = 0; i < resultadofinal.Length; i++)
+            //{
+            //     a= a.Substring(0, a.Length-i)+"y";
+            //}
+
+
+            if (Alto.IsChecked)
             {
-               a+= resultadofinal[i]+",";
+                for (int i = 0; i < resultadofinal.Length - 1; i++)
+                {
+                    a += resultadofinal[i] + ",";
+                }
+            }
+            else
+            {
+                for (int i = 1; i < resultadofinal.Length - 1; i++)
+                {
+                    a += resultadofinal[i ] + ",";
+                }
 
             }
-
-            for (int i = 0; i < resultadofinal.Length; i++)
+            if (resultadofinal.Length > 1)
             {
-                 a= a.Substring(0, a.Length-i)+"y";
+                a = a.Substring(0, a.Length - 1) + " y " + resultadofinal[resultadofinal.Length - 1];
             }
-
         }
+    
+            
+       
+        
         private void Button_Clicked(object sender, EventArgs e)
         {
             Estados();
-            Resultado.Text =a;
+            Resultado.Text =nombre +" es "+ a;
             //}
         }
        
